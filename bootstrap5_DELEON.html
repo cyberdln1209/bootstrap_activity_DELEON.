@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap5 Websites</title>
+
+<link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap5/css/bootstrap-icons.min.css">
+<link rel="stylesheet" href="bootstrap5/css/sweetalert2.min.css">
+
+<style>
+  :root{
+    --brand-blue:#0d5fe0;
+    --brand-blue-dark:#0a49b0;
+  }
+  [data-bs-theme="light"] body{ background:white; }
+  [data-bs-theme="dark"] body{ background:#121417; }
+
+  .brand-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;
+  height:26px;
+  border:1px solid #1885f1;
+  border-radius:8px;
+  color:#1885f1;
+  font-weight:700;
+  font-size:.85rem;
+  line-height:1;
+}
+  .navbar-brand{ color:#1885f1; }
+  .navbar-brand:hover,
+  .navbar-brand:focus{
+  color: var(--brand-blue);
+}
+
+  .hero-section{
+    background: linear-gradient(135deg, #1264ea 0%, #0d4fc4 100%);
+    color:white;
+  }
+  [data-bs-theme="dark"] .hero-section{
+    background: linear-gradient(135deg, #0b3d91 0%, #082a66 100%);
+  }
+  .hero-badge{
+    background:white;
+    color:var(--brand-blue-dark);
+    font-weight:600;
+    font-size:.75rem;
+    border-radius:50px;
+    padding:.35rem 1rem;
+  }
+  .hero-section p.lead{ color:rgba(255,255,255, .6); }
+
+  .btn-brand{
+    background:white;
+    color:var(--brand-blue-dark);
+    border:1px solid white;
+    font-weight:600;
+  }
+  .btn-brand:hover{ background:#eef4ff; color:var(--brand-blue-dark); }
+  .btn-brand-outline{
+    background:transparent;
+    color:white ;
+    border:1px solid white;
+    font-weight:600;
+  }
+  .btn-brand-outline:hover{ background:rgba(255,255,255,.12); color:#fff; }
+
+  .section-eyebrow{ color:var(--brand-blue); font-weight:600; }
+
+  .features-bg{ background: #e3e4e6; }
+  [data-bs-theme="dark"] .features-bg{ background:#1a1d21; }
+  .feature-card, .pricing-card, .testimonial-card{
+  background:var(--bs-body-bg);
+  border:none;
+  box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.08);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+  .feature-card:hover{ box-shadow:0 .5rem 1rem rgba(0,0,0,.08); transform:translateY(-2px); }
+  .pricing-card:hover{ box-shadow:0 1rem 2rem rgba(0,0,0,.12); transform:translateY(-4px); }
+
+  .pricing-card.featured{
+    border:2px solid var(--brand-blue);
+    box-shadow:0 .75rem 1.5rem rgba(13,95,224,.15);
+    
+  }
+  .most-popular-pill{
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--brand-blue); color:white; font-size:.7rem; font-weight:700;
+    padding:.3rem .9rem; border-radius:50px; white-space:nowrap;
+  }
+  .price-amount{ font-size:2rem; font-weight:700; }
+  .price-suffix{ font-size:.9rem; color:var(--bs-secondary-color); }
+  .plan-name{ color:var(--bs-secondary-color); font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:.03em; }
+  .pricing-card.featured .plan-name{ color:var(--brand-blue); }
+
+  .text-brand{ color:var(--brand-blue) !important; }
+
+  .testimonials-bg{ background:#e3e4e6; }
+  [data-bs-theme="dark"] .testimonials-bg{ background:#1a1d21; }
+
+  .carousel-control-prev, .carousel-control-dark, .carousel-control-next{
+    width:2.5rem; height:2.5rem; border-radius:50%;
+    background:#6c757d; opacity:1; top:50%; transform:translateY(-50%);
+  }
+  .carousel-control-prev{ left:5%; }
+  .carousel-control-next{ right:5%; }
+  .carousel-control-prev-icon, .carousel-control-next-icon{ width:1rem; height:1rem; }
+
+  footer{ background:rgb(248, 247, 247); }
+  [data-bs-theme="dark"] footer{ background:#1a1d21; }
+
+  #themeToggleBtn{ cursor:pointer; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#home">
+      <span class="brand-badge">B</span>
+      Bootstrap5 Website
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <button id="themeToggleBtn" class="btn btn-outline-secondary btn-sm rounded-circle ms-lg-2" title="Toggle dark/light mode">
+            <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header id="home" class="hero-section py-5">
+  <div class="container py-5 text-center">
+    <span class="hero-badge d-inline-block mb-3">Version 5.3.8</span>
+    <h1 class="display-5 fw-bold mb-3">
+      Build fast, responsive sites with<br>with Bootstrap
+    </h1>
+    <p class="lead col-lg-8 mx-auto mb-4">
+      A powerful, extensible, and feature-packed frontend toolkit. Build and customize
+      with Sass, utilize prebuilt grid systems and components, and bring your projects
+      to life with dynamic JavaScript plugins.
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="#pricing" class="btn btn-brand btn-lg px-4">Get Started</a>
+     <a href="bootstrap-5.3.8-dist.zip" download="bootstrap-5.3.8-dist.zip" class="btn btn-brand-outline btn-lg px-4">Download Bootstrap 5.3.8</a>
+    </div>
+  </div>
+</header>
+
+<section id="features" class="features-bg py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Powerful Features</h2>
+      <p class="text-secondary">Designed to give you full control over your layout and functionality.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card h-100 p-4 rounded-3">
+          <h5 class="fw-bold">Dark Mode Ready</h5>
+          <p class="text-secondary mb-0">Built-in theme switcher using Bootstrap 5's native data-bs-theme attribute.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card h-100 p-4 rounded-3">
+          <h5 class="fw-bold">100% Mobile First</h5>
+          <p class="text-secondary mb-0">Fully fluid layout engineered to scale down seamlessly to mobile screens.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card h-100 p-4 rounded-3">
+          <h5 class="fw-bold">Interactive UI</h5>
+          <p class="text-secondary mb-0">Includes dynamic feedback alerts, sliders, and secure form validation logic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Flexible Pricing</h2>
+      <p class="text-secondary">Choose the plan that fits your business needs.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card h-100 p-4 rounded-3 position-relative">
+          <p class="plan-name mb-2">Starter</p>
+          <div class="mb-3">
+            <span class="price-amount">₱0.00</span>
+            <span class="price-suffix">/mo</span>
+          </div>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> 1 Project</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> Community Support</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-secondary me-1"></i> Custom Domain</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary w-100">Sign Up Free</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card featured h-100 p-4 rounded-3 position-relative">
+          <span class="most-popular-pill">Most Popular</span>
+          <p class="plan-name mb-2">Pro Developer</p>
+          <div class="mb-3">
+            <span class="price-amount">₱49.00</span>
+            <span class="price-suffix">/mo</span>
+          </div>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> Unlimited Projects</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> Priority Support</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> Custom Domain</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary w-100">Get Started Pro</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card h-100 p-4 rounded-3 position-relative">
+          <p class="plan-name mb-2">Enterprise</p>
+          <div class="mb-3">
+            <span class="price-amount">₱109.00</span>
+            <span class="price-suffix">/mo</span>
+          </div>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> Dedicated Server</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> 24/7 Phone Support</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-brand me-1"></i> SLA Guarantee</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary w-100">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials-bg py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What People Say</h2>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+
+        <div class="carousel-item active">
+          <p class="fs-5 col-lg-8 mx-auto">"The dark mode toggle integration works like a charm. Extremely clean markup!"</p>
+          <p class="fw-bold mb-0">Harrold Evangelista, BSIT - Business Analytics Track</p>
+          <p class="text-secondary small">UI/UX Designer</p>
+        </div>
+
+        <div class="carousel-item">
+          <p class="fs-5 col-lg-8 mx-auto">"This Bootstrap starter layout completely sped up my client workflow. Highly recommended!"</p>
+          <p class="fw-bold mb-0">Calvin Placio, BSIT-Network Technology Track</p>
+          <p class="text-secondary small">Lead Developer, Code-Smart Solutions</p>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-5">
+  <div class="container py-4">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Get In Touch</h2>
+      <p class="text-secondary small">Fill out the form below to send us a live message</p>
+    </div>
+    <form id="contactForm" class="col-lg-6 mx-auto needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="firstName" class="form-label small">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" required>
+          <div class="invalid-feedback">Please enter your first name.</div>
+        </div>
+        <div class="col-sm-6">
+          <label for="lastName" class="form-label small">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" required>
+          <div class="invalid-feedback">Please enter your last name.</div>
+        </div>
+        <div class="col-12">
+          <label for="emailAddress" class="form-label small">Email Address</label>
+          <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="you@example.com" required>
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label small">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+          <div class="invalid-feedback">Please enter a message.</div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100 py-2">Submit Form</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <div class="d-flex justify-content-center gap-3 mb-2 fs-5">
+      <a href="#" class="text-secondary" onclick="return false;"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-secondary" onclick="return false;"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="text-secondary" onclick="return false;"><i class="bi bi-github"></i></a>
+    </div>
+    <p class="small text-secondary mb-0">© 2026 SirMags. Built with Bootstrap 5.3.</p>
+  </div>
+</footer>
+
+<script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
+<script src="bootstrap5/js/sweetalert2.all.min.js"></script>
+
+<script>
+  (function () {
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-bs-theme', theme);
+      themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+      localStorage.setItem('deleon-theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('deleon-theme') || 'light';
+    applyTheme(savedTheme);
+
+    toggleBtn.addEventListener('click', function () {
+      const current = htmlEl.getAttribute('data-bs-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  (function () {
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Incomplete Form',
+          text: 'Please fill out all required fields correctly before submitting.',
+          confirmButtonColor: '#0d5fe0'
+        });
+        return;
+      }
+
+      form.classList.add('was-validated');
+
+      const firstName = document.getElementById('firstName').value.trim();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: `Thanks, ${firstName}! We received your message and will get back to you soon.`,
+        confirmButtonColor: '#0d5fe0'
+      }).then(() => {
+        form.reset();
+        form.classList.remove('was-validated');
+      });
+    });
+
+    const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+    textInputs.forEach(function (field) {
+      field.addEventListener('input', function () {
+        const suspicious = /<script|<\/script|javascript:|onerror=|onload=/i;
+        if (suspicious.test(field.value)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Blocked Input Detected',
+            text: 'Script-like content is not allowed in this field.',
+            confirmButtonColor: '#d33'
+          });
+          field.value = field.value.replace(suspicious, '');
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
